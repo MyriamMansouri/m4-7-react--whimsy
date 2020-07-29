@@ -2,29 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import Tweet from "./Tweet/Tweet";
-
-import { TweetContext } from "./Tweet/TweetContext";
+import { TweetProvider } from "./Tweet/TweetContext";
 
 const App = () => {
-  const {
-    tweetContents,
-    displayName,
-    username,
-    avatarSrc,
-    isRetweetedByCurrentUser,
-    isLikedByCurrentUser,
-  } = React.useContext(TweetContext);
-
   return (
     <Wrapper>
-      <Tweet
-        tweetContents={tweetContents}
-        displayName={displayName}
-        username={username}
-        avatarSrc={avatarSrc}
-        isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
-      />
+      <TweetProvider>
+        <Tweet />
+      </TweetProvider>
     </Wrapper>
   );
 };
