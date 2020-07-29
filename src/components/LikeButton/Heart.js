@@ -12,6 +12,7 @@ const Heart = ({ width, isToggled }) => (
     viewBox="0 0 24 24"
     style={{
       width,
+      zIndex:1
     }}
   >
     <path

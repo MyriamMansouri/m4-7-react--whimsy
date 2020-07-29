@@ -8,14 +8,12 @@ import TweetActionIcon from "./TweetActionIcon";
 import { TweetContext } from "./TweetContext";
 
 const ActionBar = () => {
-
   const {
     isRetweetedByCurrentUser,
     handleToggleRetweet,
     isLikedByCurrentUser,
-    handleToggleLike
+    handleToggleLike,
   } = React.useContext(TweetContext);
-
   return (
     <Wrapper>
       <Action color="rgb(27, 149, 224)" size={40}>
