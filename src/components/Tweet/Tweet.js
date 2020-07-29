@@ -6,13 +6,20 @@ import ActionBar from "./ActionBar";
 import { TweetContext } from "./TweetContext";
 
 const Tweet = () => {
-  const { tweetContents, date } = React.useContext(TweetContext);
+  const { tweetContents, date, numOfRetweets, numOfLikes } = React.useContext(
+    TweetContext
+  );
 
   return (
     <Wrapper>
       <Header />
       <TweetContents>{tweetContents}</TweetContents>
       <Timestamp>{date}</Timestamp>
+      <Divider />
+      <Stats>
+        <StatNumber>{numOfRetweets}</StatNumber> <StatType>Retweets</StatType>
+        <StatNumber>{numOfLikes}</StatNumber> <StatType>Likes</StatType>
+      </Stats>
       <Divider />
       <ActionBar />
       <Divider />
@@ -49,6 +56,16 @@ const Stats = styled.div`
   display: flex;
   align-items: center;
   height: 48px;
+`;
+
+const StatNumber = styled.span`
+  font-weight: bold;
+  margin-right: 5px;
+`;
+
+const StatType = styled.span`
+  margin-right: 15px;
+  color: rgb(101,119,134);
 `;
 
 export default Tweet;
