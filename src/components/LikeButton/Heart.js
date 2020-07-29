@@ -27,4 +27,5 @@ const Svg = styled.svg`
   fill: none;
 `;
 
+
 export default Heart;

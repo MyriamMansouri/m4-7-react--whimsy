@@ -11,6 +11,25 @@ export const TweetProvider = ({ children }) => {
   const [numOfRetweets, setNumOfRetweets] = React.useState(65);
   const [isLiked, setIsLiked] = React.useState(false);
   const [isRetweeted, setIsRetweeted] = React.useState(false);
+
+  const handleToggleLike = () => {
+    if (!isLiked) {
+      setNumOfLikes(numOfLikes + 1);
+    } else {
+      setNumOfLikes(numOfLikes - 1);
+    }
+    setIsLiked(!isLiked);
+  };
+
+  const handleToggleRetweet = () => {
+    if (!isRetweeted) {
+        setNumOfRetweets(numOfRetweets + 1);
+    } else {
+        setNumOfRetweets(numOfRetweets - 1);
+    }
+    setIsRetweeted(!isRetweeted);
+  };
+
   return (
     <TweetContext.Provider
       value={{
@@ -19,7 +38,9 @@ export const TweetProvider = ({ children }) => {
         username: "carmen-sandiego",
         avatarSrc: avatar,
         isRetweetedByCurrentUser: isRetweeted,
+        handleToggleRetweet,
         isLikedByCurrentUser: isLiked,
+        handleToggleLike,
         date,
         numOfLikes,
         numOfRetweets,
